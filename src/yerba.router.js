@@ -63,6 +63,8 @@ yerbaRouter.delete("/", (req, res, next) => {
     list = filtered;
 
 
+    
+
   res.send("ok");
 });
 
