@@ -52,7 +52,7 @@ yerbaRouter.post("/", (req, res, next) => {
 });
 
 yerbaRouter.delete("/", (req, res, next) => {
-    console.log("req", req.body);
+    console.log("req.body", req.body);
     function isBigEnough(value) {
       console.log("co to jest value.id", value.id);
       console.log("co to jest req.body.id", req.body.id);
@@ -67,6 +67,15 @@ yerbaRouter.delete("/", (req, res, next) => {
 
   res.send("ok");
 });
+
+yerbaRouter.patch("/", (req, res, next) => {
+  console.log("EDIT req.body", req.body);
+
+
+  
+  res.send("ok");
+})
+
 
 generateList();
 module.exports = { yerbaRouter };
