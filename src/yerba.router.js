@@ -19,6 +19,14 @@ const generateList = () => {
     };
     list.push(defeaultItem);
   }
+
+  const item = {
+    id: "1234",
+    name: "test",
+    description: "test",
+    image: faker.image.image(),
+  }
+  list.push(item);
 };
 
 yerbaRouter.get("/", async (req, res, next) => {
@@ -70,10 +78,15 @@ yerbaRouter.delete("/", (req, res, next) => {
 
 yerbaRouter.patch("/", (req, res, next) => {
   console.log("EDIT req.body", req.body);
+  const editedName = "editedTest";
 
-
-  
-  res.send("ok");
+  const isCorrect = (item, index) => {
+    console.log("req", item, index);
+    return req.body.id === item.id;
+  }
+  const index = list.findIndex(isCorrect);
+  list[index].name=editedName;
+  res.send(list[index]);
 })
 
 
